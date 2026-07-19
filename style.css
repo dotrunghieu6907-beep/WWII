@@ -39,7 +39,8 @@ header p {
     background-color: #2c2c2c; 
     border-left: 5px solid #d32f2f;
     border-radius: 6px; 
-    padding: 25px; 
+    /* Đã giảm padding một chút để không gian dành cho ảnh rộng hơn */
+    padding: 20px; 
     margin-bottom: 30px; 
     box-shadow: 0 6px 15px rgba(0,0,0,0.6); 
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -50,15 +51,17 @@ header p {
     box-shadow: 0 10px 20px rgba(0,0,0,0.8);
 }
 
-/* === CSS MỚI CHO HÌNH ẢNH === */
+/* === CSS TỐI ƯU KÍCH THƯỚC HÌNH ẢNH === */
 .battle-image {
-    width: 100%; /* Ảnh sẽ tự động giãn đầy chiều ngang của thẻ */
-    height: auto;
-    max-height: 400px; /* Giới hạn chiều cao để không bị quá to */
-    object-fit: cover; /* Cắt cúp ảnh hợp lý nếu sai tỷ lệ */
-    border-radius: 4px;
+    width: 100%; /* Ép ảnh luôn bằng chiều ngang của khung chứa */
+    height: auto; /* Giữ nguyên tỷ lệ ảnh gốc, tránh bị kéo giãn méo mó */
+    max-height: 450px; /* Tăng giới hạn chiều cao để ảnh hiển thị hùng vĩ hơn trên màn hình lớn */
+    object-fit: cover; /* Nếu ảnh sai tỷ lệ, trình duyệt sẽ tự động cắt cúp cho vừa vặn mà không làm biến dạng */
+    object-position: center; /* Đảm bảo khi cắt cúp, trọng tâm luôn giữ ở giữa bức ảnh */
+    border-radius: 4px; /* Bo góc ảnh đồng điệu với thẻ */
     margin-bottom: 20px;
-    border-bottom: 3px solid #b71c1c; /* Đường viền đỏ dưới ảnh làm điểm nhấn */
+    border-bottom: 3px solid #b71c1c; /* Đường viền đỏ dưới ảnh */
+    display: block; /* Xóa bỏ khoảng trắng thừa khó chịu thường xuất hiện dưới chân các thẻ img */
 }
 
 .battle-card h2 { 
